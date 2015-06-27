@@ -85,7 +85,7 @@ public class Circlep extends Shape {
             return true;
         if (obj instanceof Circlep){
             Circlep other = (Circlep)obj;
-            return this.center.equals(other.center) && this.radius == other.radius; // must use equals to check valu
+            return this.center.equals(other.center) && this.radius == other.radius; // must use equals to check value
         }
         return false;
         }

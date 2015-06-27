@@ -10,6 +10,15 @@ public class Canvas {
     }
     */
     public static void main(String[] args) {
+        Point A = new Point(1,2);
+        Point B = new Point(2,4);
+        Point C = new Point(1,6);
+        Segment line = new Segment(A,B);
+        System.out.print("point A=" + A + "  point B=" + B + "  point C=" + C + "   ");
+        System.out.print(line + "    ");
+        System.out.println("lengthOfSegment = "+line.lengthOfSegment(A,B));
+        System.out.println("distFromLine ="+line.distFromLine(line,C));
+
         Point q = new Point(2,3);
         Point q1 = new Point(q); //we have the cloneqcopy constractor
         q1.setxPos(100);
