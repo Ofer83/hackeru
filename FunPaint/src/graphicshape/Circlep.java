@@ -73,7 +73,7 @@ public class Circlep extends Shape {
 
     }
     @Override
-    public double paramiter() {
+    public double perimeter() {
         return 2 * Math.PI * radius;
     }
 

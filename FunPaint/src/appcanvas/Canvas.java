@@ -4,20 +4,61 @@ import graphicshape.*;
 
 
 public class Canvas {
+    private static boolean[][] canvas = new boolean[20][60];//25 line 50 colom
+    public static void clearCanvas(){
+        for (int i = 0; i <canvas.length ; i++) {
+            for (int j = 0; j < canvas[i].length; j++) {
+                canvas[i][j] = false;
+            }
+        }
+    }
+    public static void drewCanvas(){
+        for (int i = 0; i <canvas.length ; i++) {
+            for (int j = 0; j < canvas[i].length; j++) {
+                System.out.print(canvas[i][j] ? "*" : " ");;
+            }
+            System.out.println();
+        }
+    }
+
     /*
     public static void main(String[] args) {
         System.out.println("main is in canvas package");
     }
     */
     public static void main(String[] args) {
+        clearCanvas();
+        Point p1 = new Point(1,1);
+        Point p2 = new Point(16,1);
+        Point p3 = new Point(8,20);
+        Triangle triangle = new Triangle(p1,p2,p3);
+        System.out.println(Triangle.howManyTriangle);
+        triangle.drawOnCanvas(canvas);
+        //Segment segment = new Segment(p,p1);
+        //segment.drawOnCanvas(canvas);
+        drewCanvas();
+
         Point A = new Point(1,2);
         Point B = new Point(2,4);
         Point C = new Point(1,6);
         Segment line = new Segment(A,B);
         System.out.print("point A=" + A + "  point B=" + B + "  point C=" + C + "   ");
         System.out.print(line + "    ");
-        System.out.println("lengthOfSegment = "+line.lengthOfSegment(A,B));
-        System.out.println("distFromLine ="+line.distFromLine(line,C));
+
+        System.out.println("length = "+line.length());
+        System.out.println("distFromLine ="+line.distanceFromPoint(C));
+
+        long sumTime = 0;
+        int interval = 20;
+        for (int i = 0; i < interval; i++) {   // check how time take to run the function!!!
+            long start = System.nanoTime();
+            A.setyPos(i);
+            A.distanceFromPoint(B);
+            long end = System.nanoTime();
+            sumTime += end-start;
+        }
+        long delay = sumTime/interval;
+        System.out.println("Run time = " + delay);
 
         Point q = new Point(2,3);
         Point q1 = new Point(q); //we have the cloneqcopy constractor
@@ -28,19 +69,19 @@ public class Canvas {
         Circlep cp = new Circlep(50);
         Circlep cp2 = new Circlep(50);
 
-        if (cp.equals(cp2)){  // we override the function "equals"!!!!! "this" refer to p. "obj" refer to p2
+        /*if (cp.equals(cp2)){  // we override the function "equals"!!!!! "this" refer to p. "obj" refer to p2
             System.out.println("cp and cp2 are the same");
         }else {
             System.out.println("cp and cp2 are the different");
-        }
-        Point3D p = new Point3D(5,3,1);
-        Point3D p2 = new Point3D(5,3,1);
+        }*/
+        Point3D p3d = new Point3D(5,3,1);
+        //Point3D p2 = new Point3D(5,3,1);
         //if (p == p2) {   // == refer to the pointers and not the value
-        if (p.equals(p2)){  // we override the function "equals"!!!!! "this" refer to p. "obj" refer to p2
-            System.out.println("p and p2 are the same");
-        }else {
-            System.out.println("p and p2 are the different");
-        }
+        //if (p.equals(p2)){  // we override the function "equals"!!!!! "this" refer to p. "obj" refer to p2
+        //    System.out.println("p and p2 are the same");
+        //}else {
+        //    System.out.println("p and p2 are the different");
+        //}
         /*
         Point p = new Point(5,3);
         Point p2 = new Point(5,3);
@@ -52,7 +93,7 @@ public class Canvas {
             }
         */
         //System.out.println(p);
-        Point3D p3d = new Point3D(3,4,5);
+
         System.out.println(p3d);
 
         // write your code here
@@ -60,13 +101,13 @@ public class Canvas {
         Circle c2 = new Circle(11);
         //c.radius = 30; // overwrite default
         //c2.xPos = 11;
-        System.out.print(c);
+        //System.out.print(c);
         //c.printYourSelf();   no need for this row
         //c2.printYourSelf();
-        System.out.print(c2);
+        //System.out.print(c2);
         Circle c3 = c2; // new pointer c3 to the same obj....
         //c3.xPos++; // ++ from 11 to 12.....c3 point to the same obj as c2
-        System.out.println("c2 xpos = " + c2.getxPos());
+        //System.out.println("c2 xpos = " + c2.getXPos());
         /*
         c.fillColor(123);
         byte red = 60;
@@ -104,16 +145,16 @@ public class Canvas {
         myCircle.fillColor(123);        //metoda run in circle class
         */
         Shape myShape = new Circle();    // pointer frome type "shape"
-        myShape.fillColor(123);         //metoda run in circle class becous "myshape is type of circle!!!!
+        //myShape.fillColor(123);         //metoda run in circle class becous "myshape is type of circle!!!!
 
         Shape[] myShapes = new Shape[3]; // Array of shapes
-        myShapes[0] = new Shape();       // first item general
+        //myShapes[0] = new Shape();       // first item general
         myShapes[1] = new Circle();      // second item is Circle - default in the class
         Rectangle rect = new Rectangle(15,25); //defined Rect 15*25 in the 3rd item
         //rect.setWidth(15);
         //rect.setHeight(25);
         myShapes[2] = rect;
-        System.out.println("the sum of parmiter = " + Shape.sumOfParamiter(myShapes));
+        //System.out.println("the sum of parmiter = " + Shape.sumOfParamiter(myShapes));
 
      /*   int x=1;
         x=stam(x);

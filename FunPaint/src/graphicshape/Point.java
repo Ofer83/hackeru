@@ -9,7 +9,7 @@ public class Point{
         setyPos(yPos);
     }
     public Point(Point point){
-        this(point.getxPos(),point.getyPos()); // clone/// for copy values (Point q1 = new Point(q))
+        this(point.getXpos(),point.getYpos()); // clone/// for copy values (Point q1 = new Point(q))
     }
 
     public void setyPos(int yPos) {
@@ -23,12 +23,12 @@ public class Point{
     }
 
 
-    public int getyPos() {
+    public int getYpos() {
 
         return yPos;
     }
 
-    public int getxPos() {
+    public int getXpos() {
 
         return xPos;
     }
@@ -56,7 +56,7 @@ public class Point{
         return Math.sqrt(sumOfSquares(x,y));
     }
     public double distanceFromPoint(Point p){
-        return distanceFromPoint(p.getxPos(),p.getyPos());
+        return distanceFromPoint(p.getXpos(),p.getYpos());
     }
 
     protected double sumOfSquares(int x, int y){
@@ -80,5 +80,18 @@ public class Point{
             return this.xPos == other.xPos && this.yPos == other.yPos;
         }
         return false;
+    }
+    public void drawOnCanvas(boolean[][] canvas){
+        if (canvas == null)
+            return;
+        if (canvas.length == 0)
+            return;
+        if (canvas[0].length == 0)
+            return;
+        if (this.xPos >= canvas[0].length)
+            return;
+        if (this.yPos >= canvas.length)
+            return;
+        canvas[yPos][xPos] = true;
     }
 }

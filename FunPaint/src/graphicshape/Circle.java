@@ -76,7 +76,12 @@ package graphicshape;
 
         }
         @Override
-        public double paramiter() {
+        public double perimeter() {
             return 2 * Math.PI * radius;
         }
+
+        /**
+         * Created by Hackeru on 6/29/2015.
+         */
+
     }

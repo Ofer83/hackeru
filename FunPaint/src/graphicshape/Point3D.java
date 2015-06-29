@@ -35,9 +35,9 @@ public class Point3D extends Point {
     public double distanceFromPoint(Point p) {  //we dont know if the point is 2 or 3D?
         if (p instanceof Point3D){
             Point3D theOtherPoint = (Point3D)p; //casting to 3D
-            return distanceFromPoint(theOtherPoint.getxPos(),theOtherPoint.getyPos(),theOtherPoint.getzPos());
+            return distanceFromPoint(theOtherPoint.getXpos(),theOtherPoint.getYpos(),theOtherPoint.getzPos());
         }else {
-            return distanceFromPoint(p.getxPos(),p.getyPos(),0);
+            return distanceFromPoint(p.getXpos(),p.getYpos(),0);
         }
     }
 

@@ -1,6 +1,6 @@
 package graphicshape;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape { //Malben!!
     private int width;
     private int height;
 
@@ -42,7 +42,7 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public double paramiter() {
+    public double perimeter() {
         return 2*(width + height);
     }
     @Override // ????? ????? ????? ?? ??????......
